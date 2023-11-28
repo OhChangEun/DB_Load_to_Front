@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form action="/member/search" method="GET">
+    <div class="search">
+        <input name="keyword" type="text" placeholder="음식이름을 입력해주세요">
+    </div>
+
+    <button>검색하기</button>
+  </form>
+
+ <table>
+    <thead>
+    <tr>
+        <th class="one wide">번호</th>
+        <th class="twenty wide">재료</th>
+        <th class="thirty wide">설명</th>
+        <th class="two wide">칼로리</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="foodentity : ${foodList}">
+        <td th:text="${foodentity.Id}"></td>
+         <td th:text="${foodentity.Foodingredient}"></td>
+         <td th:text="${foodentity.Foodprofile}"></td>
+         <td th:text="${foodentity.Foodcalorie}"></td>
+        </tr>
+    </tbody>
+  </table>
+ </body>
+</html>
